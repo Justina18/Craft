@@ -1,4 +1,3 @@
-// pages/PortfolioPage.tsx
 import AnimatedFolder, { Project } from './animated-folder';
 
 const PortfolioPage = () => {
