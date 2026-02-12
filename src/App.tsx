@@ -13,6 +13,7 @@ import MorphingCards, { type CardData } from "./components/Morph/morph";
 import DatabasePage from "./DataBase/database-page";
 import ParallaxPage from "./components/zoom-parallax/parallax-page";
 import PortfolioPage from "./components/portfolio/portfolio";
+import FeedbackPage from "./components/feedback-widget/feedback-page";
 
 const cardData: CardData[] = [
   {
@@ -273,6 +274,19 @@ function App() {
             className="flex justify-center"
           >
             <MorphingCards cards={cardData} />
+          </motion.div>
+        );
+        case "feedback-widget":
+        return (
+          <motion.div
+            key="feedback-widget"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="flex justify-center"
+          >
+            <FeedbackPage />
           </motion.div>
         );
       default:

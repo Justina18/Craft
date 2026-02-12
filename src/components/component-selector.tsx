@@ -20,6 +20,8 @@ const options: ComponentOption[] = [
   { id: "database-page", label: "Database Page" },
   { id: "parallax-page", label: "Parallax Page" },
   { id: "portfolio-page", label: "Portfolio Page" },
+  { id: "feedback-widget", label: "Feeback widget" },
+
 ];
 
 interface ComponentSelectorProps {
