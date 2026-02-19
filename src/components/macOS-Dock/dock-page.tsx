@@ -66,13 +66,12 @@ const DockPage: React.FC = () => {
     <div 
       className="h-screen w-screen flex items-end justify-center pb-8 overflow-hidden relative"
       style={{
-        backgroundImage: 'url(https://res.cloudinary.com/de6dwxq4l/image/upload/v1770382919/dreamlike-surrealistic-landscape_zleqgi.jpg)',
+        backgroundImage: 'url(https://res.cloudinary.com/de6dwxq4l/image/upload/v1771527989/download_7_k6ykru.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Optional overlay for better dock visibility */}
       <div className="absolute inset-0 bg-black/10"></div>
       
       <div className="relative z-10">

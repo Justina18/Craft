@@ -8,11 +8,7 @@ type ComponentOption = {
 };
 
 const options: ComponentOption[] = [
-  { id: "copy-paste", label: "Copy Paste" },
-  { id: "memory-widget", label: "Memory Widget" },
   { id: "audio-widget", label: "Audio Widget" },
-  { id: "fixed-nav", label: "Fixed Navbar" },
-  { id: "floating-nav", label: "Floating Navbar" },
   { id: "figma-toolbar", label: "Figma Toolbar" },
   { id: "bento-galerry", label: "Bento gallery" },
   { id: "dock-page", label: "MacOS Dock" },
@@ -21,7 +17,9 @@ const options: ComponentOption[] = [
   { id: "parallax-page", label: "Parallax Page" },
   { id: "portfolio-page", label: "Portfolio Page" },
   { id: "feedback-widget", label: "Feeback widget" },
-
+  { id: "bento-grid", label: "Bento Grid" },
+  { id: "kanban-page", label: "Kanban Page" },
+  { id: "scroll-morph", label: "Scroll Morph" },
 ];
 
 interface ComponentSelectorProps {
@@ -36,12 +34,9 @@ export default function ComponentSelector({
   const [isOpen, setIsOpen] = useState(false);
   const selectorRef = useRef<HTMLDivElement>(null);
 
-  // Get the label of the active component
   const activeLabel =
     options.find((opt) => opt.id === activeComponent)?.label ||
     "Select Component";
-
-  // Close the dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (

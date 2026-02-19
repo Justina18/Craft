@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "./components/navbar/navbar-fixed";
-import NavbarCenter from "./components/navbar/navbar-center";
 import PodcastWidget from "./components/audio-widget/audio-widget";
 import ComponentSelector from "./components/component-selector";
 import Toolbar from "./components/figma-toolbar/toolbar";
-import MemoryWidget from "./components/memory-lane/memory-widget";
-import CopyPaste from "./components/copy-paste/copy-paste";
 import BentoGallery from "./components/BentoGallery/bento-galerry";
 import DockPage from "./components/macOS-Dock/dock-page";
 import MorphingCards, { type CardData } from "./components/Morph/morph";
@@ -14,6 +10,9 @@ import DatabasePage from "./DataBase/database-page";
 import ParallaxPage from "./components/zoom-parallax/parallax-page";
 import PortfolioPage from "./components/portfolio/portfolio";
 import FeedbackPage from "./components/feedback-widget/feedback-page";
+import BentoGrid from "./components/bento-grid/bento";
+import KanbanPage from "./components/trello/kanban-page";
+import ScrollMorphHero from "./scroll-morph/scroll-morph";
 
 const cardData: CardData[] = [
   {
@@ -54,14 +53,13 @@ function App() {
           "fixed-nav",
           "floating-nav",
           "audio-widget",
-          "memory-widget",
           "figma-toolbar",
         ].includes(componentParam)
       ) {
         return componentParam;
       }
     }
-    return "memory-widget";
+    return "dock-page";
   });
 
   const [isMobile, setIsMobile] = useState(false);
@@ -127,43 +125,6 @@ function App() {
 
   const renderActiveComponent = () => {
     switch (activeComponent) {
-      case "copy-paste":
-        return (
-          <motion.div
-            key="copy-paste"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex h-[90vh] overflow-hidden w-full items-center justify-center"
-          >
-            <CopyPaste />
-          </motion.div>
-        );
-      case "fixed-nav":
-        return (
-          <motion.div
-            key="fixed-nav"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-          >
-            <Navbar />
-          </motion.div>
-        );
-      case "floating-nav":
-        return (
-          <motion.div
-            key="floating-nav"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-          >
-            <NavbarCenter />
-          </motion.div>
-        );
       case "audio-widget":
         return (
           <motion.div
@@ -175,19 +136,6 @@ function App() {
             className="flex justify-center pt-10"
           >
             <PodcastWidget />
-          </motion.div>
-        );
-      case "memory-widget":
-        return (
-          <motion.div
-            key="memory-widget"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex justify-center"
-          >
-            <MemoryWidget />
           </motion.div>
         );
       case "figma-toolbar":
@@ -227,7 +175,7 @@ function App() {
             <DockPage />
           </motion.div>
         );
-        case "database-page":
+      case "database-page":
         return (
           <motion.div
             key="fixed-nav"
@@ -239,7 +187,7 @@ function App() {
             <DatabasePage />
           </motion.div>
         );
-        case "parallax-page":
+      case "parallax-page":
         return (
           <motion.div
             key="fixed-nav"
@@ -251,7 +199,7 @@ function App() {
             <ParallaxPage />
           </motion.div>
         );
-        case "portfolio-page":
+      case "portfolio-page":
         return (
           <motion.div
             key="fixed-nav"
@@ -266,7 +214,7 @@ function App() {
       case "morph-cards":
         return (
           <motion.div
-            key="memory-widget"
+            key="morph-card"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -276,7 +224,7 @@ function App() {
             <MorphingCards cards={cardData} />
           </motion.div>
         );
-        case "feedback-widget":
+      case "feedback-widget":
         return (
           <motion.div
             key="feedback-widget"
@@ -289,16 +237,55 @@ function App() {
             <FeedbackPage />
           </motion.div>
         );
+      case "bento-grid":
+        return (
+          <motion.div
+            key="bento-grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="flex justify-center"
+          >
+            <BentoGrid />
+          </motion.div>
+        );
+      case "kanban-page":
+        return (
+          <motion.div
+            key="kanban-page"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="flex justify-center"
+          >
+            <KanbanPage />
+          </motion.div>
+        );
+      case "scroll-morph":
+        return (
+          <motion.div
+            key="scroll-morph"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="flex justify-center w-full h-screen"
+          >
+            <ScrollMorphHero />
+          </motion.div>
+        );
       default:
         return (
           <motion.div
-            key="floating-nav"
+            key="mac-dock"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
-            <NavbarCenter />
+            <DockPage />
           </motion.div>
         );
     }

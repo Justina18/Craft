@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import cloud from "../../assets/memory-widget/cloud.png";
 
 interface MemoryCardsProps {
   numMemories: number;
@@ -19,7 +18,7 @@ const MemoryCards = ({ numMemories, memories }: MemoryCardsProps) => {
           className="flex flex-col items-center gap-3"
         >
           <img
-            src={cloud || "/placeholder.svg"}
+            src= "/placeholder.svg"
             alt=""
             className="w-4 opacity-30"
           />
