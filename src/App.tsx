@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import PodcastWidget from "./components/audio-widget/audio-widget";
 import ComponentSelector from "./components/component-selector";
-import Toolbar from "./components/figma-toolbar/toolbar";
 import BentoGallery from "./components/BentoGallery/bento-galerry";
 import DockPage from "./components/macOS-Dock/dock-page";
 import MorphingCards, { type CardData } from "./components/Morph/morph";
@@ -52,8 +50,7 @@ function App() {
           "copy-paste",
           "fixed-nav",
           "floating-nav",
-          "audio-widget",
-          "figma-toolbar",
+          
         ].includes(componentParam)
       ) {
         return componentParam;
@@ -125,33 +122,7 @@ function App() {
 
   const renderActiveComponent = () => {
     switch (activeComponent) {
-      case "audio-widget":
-        return (
-          <motion.div
-            key="audio-widget"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex justify-center pt-10"
-          >
-            <PodcastWidget />
-          </motion.div>
-        );
-      case "figma-toolbar":
-        return (
-          <motion.div
-            key="figma-toolbar"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex justify-center"
-          >
-            <Toolbar />
-          </motion.div>
-        );
-      case "bento-galerry":
+     case "bento-galerry":
         return (
           <motion.div
             key="fixed-nav"

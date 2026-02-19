@@ -8,8 +8,6 @@ type ComponentOption = {
 };
 
 const options: ComponentOption[] = [
-  { id: "audio-widget", label: "Audio Widget" },
-  { id: "figma-toolbar", label: "Figma Toolbar" },
   { id: "bento-galerry", label: "Bento gallery" },
   { id: "dock-page", label: "MacOS Dock" },
   { id: "morph-cards", label: "Morphing Cards" },
